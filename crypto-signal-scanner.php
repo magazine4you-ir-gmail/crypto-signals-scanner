@@ -53,6 +53,7 @@ require_once CSS_PLUGIN_DIR . 'includes/class-frontend-history.php';
 require_once CSS_PLUGIN_DIR . 'includes/class-signals-table-shortcode.php';
 require_once CSS_PLUGIN_DIR . 'includes/class-accuracy-shortcode.php';
 require_once CSS_PLUGIN_DIR . 'includes/class-market-trend-shortcode.php';
+require_once CSS_PLUGIN_DIR . 'includes/class-coin-identity.php';
 
 // ماژول بک‌تست (اکانت مجازی، معامله زنده/تاریخی، لوریج، حد ضرر/سود خودکار)
 require_once CSS_PLUGIN_DIR . 'includes/backtest/class-backtest-account.php';
