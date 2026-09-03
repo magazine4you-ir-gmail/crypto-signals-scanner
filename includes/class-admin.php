@@ -176,14 +176,15 @@ class CSS_Admin {
 			<?php $this->render_error_log(); ?>
 
 			<div class="css-toolbar">
-				<button id="css-scan-now" class="button button-primary">اسکن الان</button>
-				<button id="css-cleanup-now" class="button">پاکسازی و یکپارچه‌سازی</button>
-				<span id="css-scan-progress"></span>
-				<span id="css-cleanup-progress"></span>
-				<?php if ( ! empty( $status['finished_at'] ) ) : ?>
-					<span class="css-last-scan">آخرین اسکن کامل: <?php echo esc_html( $status['finished_at'] ); ?></span>
-				<?php endif; ?>
-			</div>
+                <button id="css-scan-now" class="button button-primary">اسکن الان</button>
+                <button id="css-cancel-scan" class="button" style="display:none; background:#dc3232; color:#fff; border-color:#dc3232;">لغو اسکن</button>
+                <button id="css-cleanup-now" class="button">پاکسازی و یکپارچه‌سازی</button>
+                <span id="css-scan-progress"></span>
+                <span id="css-cleanup-progress"></span>
+                <?php if ( ! empty( $status['finished_at'] ) ) : ?>
+                    <span class="css-last-scan">آخرین اسکن کامل: <?php echo esc_html( $status['finished_at'] ); ?></span>
+                <?php endif; ?>
+            </div>
 			<p class="description" style="margin-top:-6px;">دکمه «پاکسازی و یکپارچه‌سازی» ارزهای قدیمی/یتیم (که از سری‌های اول افزونه باقی مانده و دیگر اسکن نمی‌شوند) را از این جدول حذف می‌کند و برای بقیه ارزها، در صورت نبود، پست‌تایپشان را می‌سازد تا لینک شوند. تاریخچه و آرشیو پست‌تایپ‌ها دست‌نخورده می‌ماند.</p>
 
 			<h2 style="margin-top:20px;font-size:15px;">نتیجه تست سیستم</h2>
@@ -625,7 +626,7 @@ class CSS_Admin {
 		$output['binance_worker_token'] = sanitize_text_field( trim( $input['binance_worker_token'] ?? '' ) );
 		$quote = strtoupper( preg_replace( '/[^A-Z0-9]/', '', (string) ( $input['binance_quote_asset'] ?? 'USDT' ) ) );
 		$output['binance_quote_asset'] = $quote ?: 'USDT';
-		$output['request_delay_ms'] = max( 500, min( 10000, (int) ( $input['request_delay_ms'] ?? 2500 ) ) );
+		$output['request_delay_ms'] = max( 250, min( 10000, (int) ( $input['request_delay_ms'] ?? 2500 ) ) );
 		$output['active_timeframes'] = array_values( array_intersect(
 			(array) ( $input['active_timeframes'] ?? array( 'daily' ) ),
 			array( 'hourly', 'daily', 'weekly' )
@@ -811,7 +812,7 @@ class CSS_Admin {
 					</tr>
 					<tr>
 						<th><label for="request_delay_ms">فاصله بین درخواست‌ها (میلی‌ثانیه)</label></th>
-						<td><input type="number" id="request_delay_ms" name="css_settings[request_delay_ms]" value="<?php echo esc_attr( $settings['request_delay_ms'] ?? 2500 ); ?>" min="500" max="10000" step="100">
+						<td><input type="number" id="request_delay_ms" name="css_settings[request_delay_ms]" value="<?php echo esc_attr( $settings['request_delay_ms'] ?? 2500 ); ?>" min="250" max="10000" step="100">
 						<p class="description">برای جلوگیری از خطای ۴۲۹ (Rate Limit) از Provider فعال جلوگیری شود. اگر کلید API پولی دارید می‌توانید کمترش کنید.</p></td>
 					</tr>
 				</table>
