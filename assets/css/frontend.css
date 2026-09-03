@@ -1,0 +1,19 @@
+.css-frontend-table-wrap { direction: rtl; text-align: right; overflow-x: auto; color: #1a1a1a; }
+.css-frontend-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.css-frontend-table th, .css-frontend-table td {
+	padding: 10px 14px;
+	border-bottom: 1px solid #eaeaea;
+	color: #1a1a1a !important;
+}
+.css-frontend-table th { font-weight: 700; background: #fafafa; color: #333 !important; }
+.css-front-badge {
+	display: inline-block;
+	padding: 4px 14px;
+	border-radius: 20px;
+	font-weight: 700;
+	font-size: 12px;
+}
+.css-front-badge-buy { background: #dcfce7; color: #15803d !important; }
+.css-front-badge-sell { background: #fee2e2; color: #b91c1c !important; }
+.css-front-badge-neutral { background: #f1f1f1; color: #555 !important; }
+.css-empty { color: #888 !important; }
